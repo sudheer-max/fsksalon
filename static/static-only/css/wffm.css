@@ -1,0 +1,22 @@
+﻿.newsletterCheckbox {
+    margin-top: 15px; 
+}
+
+.popUpCheckbox {
+    font-size: 15px;
+    margin-left: 1.5%;
+    line-height: 30px;
+}
+
+.newsletterCheckboxBottom {
+    margin-left: -4px;
+    margin-top: 15px;
+
+}
+
+.popUpCheckbox input[type=checkbox]{
+     -webkit-appearance: checkbox;
+     -moz-appearance: checkbox;
+     width:16px;
+     margin-top: 5px;
+}
