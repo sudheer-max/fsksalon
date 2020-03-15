@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block hair %}
+
+ <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area section-padding-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>Our Latest Blog</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'fsksalon:home' %}"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Our Blog</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- News Area Start -->
+    <section class="akame-news-area section-padding-0-80">
+        <div class="container">
+            <div class="row mx-sm-n4 akame-blog-masonary">
+            {% for blog in blog_list %}
+                <!-- Single Blog Item -->
+                <div class="col-12 col-sm-6 col-lg-4 px-4 akame-blog-masonary-item mb-50 wow fadeInUp" data-wow-delay="200ms">
+                    <!-- Single Post Area -->
+                    <div class="single-post-area">
+                        <div class="post-thumbnail">
+                            <a href="{{  blog.get_blog_url }}">
+                            <img src="{{ blog.image.url }}"></a>
+                        </div>
+                        <div class="post-content">
+                            <a href="{{  blog.get_blog_url }}" class="post-title">{{ blog.title }}</a>
+                            {% comment %} <div class="post-meta">
+                                <a href="#" class="post-date"><i class="icon_clock_alt"></i> September 27, 2018</a>
+                                <a href="#" class="post-comments"><i class="icon_chat_alt"></i> 10</a>
+                            </div> {% endcomment %}
+                            <p>{{ blog.short_description|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+
+               {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+    <!-- News Area End -->
+
+{% endblock hair %}

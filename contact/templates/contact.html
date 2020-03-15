@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block contact %}
+<!-- Contact Information Area Start -->
+    <section class="contact-information-area section-padding-80-0">
+        <div class="container">
+            <div class="row">
+                <!-- Single Contact Information -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-contact-information mb-80">
+                        <i class="icon_phone"></i>
+                        <h4>Phone</h4>
+                        <p>+91-900 4141 610</p>
+                        <p>+91-892 8230 133</p>
+                    </div>
+                </div>
+
+                <!-- Single Contact Information -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-contact-information mb-80">
+                        <i class="icon_pin"></i>
+                        <h4>Address</h4>
+                        <p>101/B, 1st Floor, VRAJ DEEP CHS LTD., Eksar Road, Above Arihant Medical, Opp. Roayl Veg. Treat, Royal Complex, Borivali (W), Mumbai - 400 092.</p>
+                    </div>
+                </div>
+
+                <!-- Single Contact Information -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-contact-information mb-80">
+                        <i class="icon_clock"></i>
+                        <h4>Open time</h4>
+                        <p>10:00 am to 08:00 pm</p>
+                    </div>
+                </div>
+
+                <!-- Single Contact Information -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-contact-information mb-80">
+                        <i class="icon_mail"></i>
+                        <h4>Email</h4>
+                        <p>fsksalonacademy@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Information Area End -->
+
+    
+
+    <section class="akame-contact-area bg-gray section-padding-80">
+        <div class="conatainer">
+            <div class="container">
+                <div class="row">
+                    <!-- Section Heading -->
+                    <div class="col-12">
+                        <div class="section-heading text-center">
+                            <h2>{{ title }}</h2>
+                            {% if confirm_message %}
+                            <p>{{ confirm_message }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="row">
+                <div class="col-lg-8 col-10 offset-lg-2 offset-1">
+                    {% if form %}
+                    <form method="POST" action="">{% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="col-12 text-center">
+                            <button type="submit" value="submit forms" class="btn akame-btn btn-3 mt-15 active">Send Message</button>
+                        </div>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock contact %}

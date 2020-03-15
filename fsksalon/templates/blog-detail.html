@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block details %}
+
+ <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area section-padding-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>{{ blog.title }}</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'fsksalon:home' %}"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'fsksalon:blog' %}"></i> Our Latest Blog </a></li>
+                                 <li class="breadcrumb-item"><a href="{{  blog.get_blog_url }}">{{ blog.title }}</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+ <!-- Blog Details Area Start -->
+    <section class="akame-blog-details-area section-padding-80">
+        <div class="container">
+            {% comment %} <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="post-content">
+                        <h2 class="post-title">{{ hair.title }}</h2>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+
+            <div class="row">
+                <div class="col-10 col-lg-10 offset-lg-1 offset-1">
+                    <div class="post-thumbnail mb-50">
+                        <img src="{{ blog.image.url }}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-2 col-md-2 col-lg-1">
+                    <!-- Post Share -->
+                    <div class="akame-post-share">
+                        <a href="#" data-toggle="tooltip" data-placement="left" title="Facebook" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="left" title="Twitter" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="left" title="Google Plus" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="left" title="Instagram" class="instagram"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-10 col-md-10 col-lg-9">
+                    <div class="blog-details-text">
+                        <p>{{ blog.description|safe }}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Area End -->
+
+   
+
+{% endblock details %}

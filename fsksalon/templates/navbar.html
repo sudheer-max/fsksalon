@@ -1,0 +1,92 @@
+{% load static %}
+{% block navbar %}
+
+<header class="header-area">
+        <!-- Top Header Area Start -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-5">
+                        <div class="top-header-content">
+                            <p>Welcome to FSK Salon & Academy!</p>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="top-header-content text-right">
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> Mon-Sun: 10.00AM to 08.00PM <span class="mx-2"></span> | <span class="mx-2"></span> <i class="fa fa-phone" aria-hidden="true"></i> Call us: +91-900 4141 610</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Header Area End -->
+
+        <!-- Main Header Start -->
+        <div class="main-header-area">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Classy Menu -->
+                    <nav class="classy-navbar justify-content-between" id="akameNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="{% url 'fsksalon:home' %}"><img src="{% static '/img/logo_FSK-01.png' %}" alt="" style="width: 220px;" ></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Menu Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul id="nav">
+                                    {% url 'home' as home %}
+                                    {% url 'about' as about %}
+                                    {% url 'portfolio' as portfolio %}
+                                    {% url 'blog' as blog %}
+                                    {% url 'contact' as contact %}
+                                    <li {% if request.path == home %} class="active" {% endif %}><a href="{% url 'fsksalon:home' %}">Home</a></li>
+                                    <li {% if request.path == about %} class="active" {% endif %}><a href="{% url 'fsksalon:about' %}">About</a></li>
+                                    <li><a href="#">Services</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{% url 'fsksalon:hair' %}">- Hair</a></li>
+                                            <li><a href="{% url 'fsksalon:beauty' %}">- Beauty</a></li>
+                                            <li><a href="{% url 'fsksalon:bridal' %}">- Bridal & Groom</a></li>
+                                            <li><a href="{% url 'fsksalon:tattoo' %}">-Tattoo</a></li>
+                                            <li><a href="{% url 'fsksalon:nail' %}">-Nail Services</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'fsksalon:course' %}">Courses</a>
+                                        <!-- <ul class="dropdown">
+                                            <li><a href="#">- Hair Dressing</a></li>
+                                            <li><a href="#">- Beautician</a></li>
+                                            <li><a href="#">- Professional Makeup</a></li>
+                                            <li><a href="#">- Professional Makeup</a></li>
+                                            <li><a href="#">- Groomging</a></li>
+                                        </ul> -->
+                                    </li>
+                                    <li {% if request.path == portfolio %} class="active" {% endif %}><a href="{% url 'fsksalon:portfolio' %}">Portfolio</a></li>
+                                    <li {% if request.path == blog %} class="active" {% endif %}><a href="{% url 'fsksalon:blog' %}">Blog</a></li>
+                                    <li {% if request.path == contact %} class="active" {% endif %}><a href="{% url 'contact' %}">Contact</a></li>
+                                </ul>
+
+                                <!-- Book Icon -->
+                                <div class="book-now-btn ml-5 mt-4 mt-lg-0 ml-md-4">
+                                    <a href="{% url 'contact' %}" class="btn akame-btn">Book Now</a>
+                                </div>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+
+{% endblock navbar %}

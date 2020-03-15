@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block portfolio %}
+
+<!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area section-padding-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>Manicure & Pedicure Services</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'fsksalon:home' %}"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Nail Services</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Portfolio Area Start -->
+    <section class="akame-portfolio section-padding-0-80 clearfix">
+        <div class="container">
+
+            <div class="row akame-portfolio-area">
+                <!-- Single Portfolio Item -->
+                {% for nail in nail_list %}
+                <div class="col-12 col-sm-6 col-lg-4 akame-portfolio-item haircuts mb-30 wow fadeInUp" data-wow-delay="200ms">
+                    <div class="akame-portfolio-single-item">
+                        <img src="{{ nail.image.url }}" alt="">
+                        <!-- Overlay Content -->
+                        <div class="overlay-content d-flex align-items-center justify-content-center">
+                            <div class="overlay-text text-center">
+                                <h2>{{ nail.title }}</h2>
+                                <p>{{ nail.description|safe }}</p>
+                            </div>
+                        </div>
+                        <!-- Thumbnail Zoom -->
+                        <a href="{{  nail.image.url }}" class="thumbnail-zoom"><i class="icon_search"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </section>
+    <!-- Portfolio Area End -->
+
+{% endblock portfolio %}
